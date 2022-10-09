@@ -32,7 +32,7 @@ body {
 }
 
 /*
-Navigation
+Navigation -----------------------------------
 */
 
 .nav__bar {
@@ -49,6 +49,14 @@ Navigation
 
 .icons {
     display: flex;
+}
+
+.nav__bar a {
+    color: var(--white);
+}
+
+.nav__bar a:link {
+    text-decoration: none;
 }
 
 .nav__bar ul li {
@@ -88,11 +96,11 @@ Navigation
 }
 
 /*
-Contenu ------------------------------------------------------------------
+Contenu -----------------------------------
 */
 
 /*
-Caroussels
+Caroussels 
 */
 
 .container {
@@ -171,56 +179,6 @@ Article du jour
 
 .item img {
     width: 400px;
-}
-
-/*
-Pied de page
-*/
-
-footer {
-    text-align: center;
-    padding: 10px 30px;
-    background-color: var(--grey);
-    color: var(--white);
-}
-
-.informations ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    padding: 10px 30px;
-}
-
-.informations ul li ul{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    font-size: smaller;
-}
-
-.informations ul li ul li {
-    position: relative;
-    left: -25px;
-}
-
-/*
-Scrollbar
-*/
-
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--white);
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--grey);
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--lighter-grey);
 }
 
 /*
@@ -309,4 +267,113 @@ Animation couleur texte
     100% {
         color: #99d468;
     }
+}
+
+/*
+Pied de page -----------------------------------
+*/
+
+footer {
+    text-align: center;
+    padding: 10px 30px;
+    background-color: var(--grey);
+    color: var(--white);
+}
+
+.informations ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px 30px;
+}
+
+.informations ul li ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: smaller;
+}
+
+.informations ul li {
+    position: relative;
+    left: -25px;
+}
+
+/*
+Scrollbar -----------------------------------
+*/
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--white);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--grey);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--lighter-grey);
+}
+
+/*
+Formulaire -----------------------------------
+*/
+
+.form {
+    background-color: var(--light-grey);
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    padding: 50px 100px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    border-radius: 20px;
+    transition: .3s;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 15px;
+    gap: 20px;
+}
+
+.form input {
+    width: 100%;
+    padding: 6px 0px;
+    border: 1px solid rgba(27, 31, 35, .15);
+    border-radius: 6px;
+    margin: 8px 0;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    padding-top: 10px;
+}
+
+.buttons button:first-child {
+    transition: .3s;
+    background-color: #2ea44f;
+    border: 1px solid rgba(27, 31, 35, .15);
+    border-radius: 6px;
+    box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+    padding: 6px 16px;
+    color: var(--white);
+}
+
+.buttons button:last-child {
+    transition: .3s;
+    background-color: #a42e2e;
+    border: 1px solid rgba(27, 31, 35, .15);
+    border-radius: 6px;
+    box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+    padding: 6px 16px;
+    color: var(--white);
+}
+
+.buttons button:hover {
+    transition: .3s;
+    transform: scale(1.1);
 }
