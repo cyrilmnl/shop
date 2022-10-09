@@ -16,20 +16,6 @@ Auteur du projet :
 
 * **Cyril Manil** _alias_ [@cyrilmnl](https://github.com/cyrilmnl)
 
-## Installation / Configuration
-
-### Installation par `Composer`
-
-Lancer `composer install` pour installer [PHP Coding Standards Fixer](https://cs.symfony.com/) et le configurer dans PhpStorm (le fichier `.php-cs-fixer.php` contient les règles personnalisées basées sur la recommandation [PSR-12](https://www.php-fig.org/psr/psr-12/))
-
-### Configurer PhpStorm
-
-Configurer l'intégration de PHP Coding Standards Fixer dans PhpStorm en fixant le jeu de règles sur `Custom` et en désignant `.php-cs-fixer.php` comme fichier de configuration de règles de codage. 
-
-### Base de données
-
-Copier le fichier `.mypdo.ini.dist` en `.mypdo.ini` et modifier `.mypdo.ini` pour ajuster la configuration du serveur de base de données.
-
 ## Serveur Web local
 
 ### Sur Linux
