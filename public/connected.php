@@ -10,16 +10,17 @@ $authentication = new UserAuthentication();
 // Un utilisateur est-il connecte ?
 if (!$authentication->isUserConnected()) {
     // Rediriger vers le formulaire de connexion
-    header('Location: /connexion.php');
+    header('Location: /form.php');
     die(); // Fin du programme
 }
 
-$title = 'Zone membre';
+$title = 'Affichage utilisateur connecté';
 $p = new WebPage($title);
 
-$p->appendContent(<<<HTML
-        <h1>Zone membre connecté</h1>
-        <h2>Page 1</h2>
+$p->appendContent(
+    <<<HTML
+        <h1>Utilisateur authentifié</h1>
+        <h2>{$authentication->getUser()->getFirstName()} est connecté</h2>
 HTML
 );
 

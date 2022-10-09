@@ -117,7 +117,7 @@ class UserAuthentication
         $logout = self::LOGOUT_INPUT_NAME;
 
         return <<<HTML
-                <form method="POST" action="$action">
+                <form method="POST" action="$action" class="logout">
                     <button name="$logout" type="submit">$text</button>
                 </form>
         HTML;

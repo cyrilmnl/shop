@@ -24,17 +24,20 @@ class UserProfile
     {
         $lastName = self::escapeString($this->user->getLastName());
         $firstName = self::escapeString($this->user->getFirstName());
-        $login = self::escapeString($this->user->getLogin());
         $phone = self::escapeString($this->user->getPhone());
+        $email = self::escapeString($this->user->getEmail());
+        $birthdate = self::escapeString($this->user->getBirthdate());
 
         return <<<HTML
                 <p>Nom : {$lastName}</p>
 
                 <p>Prénom : {$firstName}</p>
 
-                <p>Login : {$login}[{$this->user->getId()}]</p>
-
                 <p>Téléphone : {$phone}</p>
+
+                <p>Email : {$email}</p>
+
+                <p>Date de naissance : {$birthdate}</p>
         HTML;
     }
 

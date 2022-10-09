@@ -377,3 +377,30 @@ Formulaire -----------------------------------
     transition: .3s;
     transform: scale(1.1);
 }
+
+/*
+Profile
+*/
+
+.logout {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    padding-top: 10px;
+}
+
+.logout button {
+    transition: .3s;
+    background-color: #a42e2e;
+    border: 1px solid rgba(27, 31, 35, .15);
+    border-radius: 6px;
+    box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+    padding: 6px 16px;
+    color: var(--white);
+}
+
+.logout button:hover {
+    transition: .3s;
+    transform: scale(1.1);
+}

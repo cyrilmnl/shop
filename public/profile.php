@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Authentication\UserAuthentication;
 use Html\WebPage;
+use Service\Exception\NotLoggedInException;
 
 require_once '../src/Html/WebPage.php';
 
@@ -43,13 +44,17 @@ if (!$authentication->isUserConnected()) {
     // Redirection vers le formulaire de connexion
     header('Location: /connexion.php');
     die(); // Fin du programme
+} else {
+    $user = $authentication->getUser();
+    $authentication->logoutIfRequested();
+    $form = $authentication->logoutForm('index.php', 'Déconnexion');
 }
-
-$user = $authentication->getUserFromAuth();
 
 $pageweb->appendContent(
     <<<HTML
         <h2>Bonjour {$user->getFirstName()}</h2>
+        
+        {$form}
     </div>
 
     <footer>

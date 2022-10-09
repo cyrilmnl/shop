@@ -25,7 +25,7 @@ class User
     {
         $stmt = MyPDO::getInstance()->prepare(
             <<<'SQL'
-            SELECT id, lastName, firstName, email, birthdate, phone
+            SELECT id, lastName, firstName, phone, email, birthdate
             FROM user 
             WHERE email = :email
             AND sha512pass = :password
