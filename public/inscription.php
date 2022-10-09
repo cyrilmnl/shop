@@ -1,25 +1,30 @@
-<!DOCTYPE html>
-<html lang="fr">
+<?php
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-</head>
+declare(strict_types=1);
 
-<body>
-    <nav class="nav__bar">
+use Html\WebPage;
+
+require_once '../src/Html/WebPage.php';
+
+$pageweb = new WebPage();
+
+$pageweb->setTitle("Inscription");
+
+$pageweb->appendCssUrl("css/style.css");
+
+$pageweb->appendCssUrl("https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css");
+
+$pageweb->appendContent(
+    <<<HTML
+        <nav class="nav__bar">
         <ul>
-            <a href="index.html">
+            <a href="index.php">
                 <li>Accueil</li>
             </a>
             <div class="icons">
                 <li><i class='bx bx-basket'></i></li>
                 <li><i class='bx bx-heart'></i></li>
-                <a href="connexion.html">
+                <a href="connexion.php">
                     <li><i class='bx bx-user'></i></li>
                 </a>
             </div>
@@ -29,7 +34,7 @@
     <div class="container">
         <h2>Inscription</h2>
 
-        <form class="form" method="post" action="profile.html">
+        <form class="form" method="post" action="profile.php">
             <label>
                 Nom<br>
                 <input type="text" placeholder="Entrer votre nom de famille" name="lastname" required
@@ -55,13 +60,18 @@
                 Date de naissance
                 <input type="date" name="birthdate" required>
             </label>
+            
+            <label>
+                Numéro de téléphone
+                <input type="tel" placeholder="Entrer votre numéro de téléphone" name="phone" required>
+            </label>
 
             <div class="buttons">
                 <button type="submit">Inscription</button>
                 <button type="reset">Effacer</button>
             </div>
 
-            <p>Déjà un compte ? Connectez-vous <a href="connexion.html">ici</a>.</p>
+            <p>Déjà un compte ? Connectez-vous <a href="connexion.php">ici</a>.</p>
         </form>
     </div>
 
@@ -99,6 +109,7 @@
             </li>
         </ul>
     </div>
-</body>
+HTML
+);
 
-</html>
+echo $pageweb->toHTML();

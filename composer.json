@@ -17,7 +17,10 @@
             "email": "cyril.manil08@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "ext-intl": "*",
+      "ext-pdo": "*"
+    },
     "scripts":{
         "test:cs": "php vendor/bin/php-cs-fixer fix --dry-run",
         "fix:cs": "php vendor/bin/php-cs-fixer fix",

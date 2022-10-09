@@ -1,25 +1,35 @@
-<!DOCTYPE html>
-<html lang="fr">
+<?php
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-</head>
+declare(strict_types=1);
 
-<body>
-    <nav class="nav__bar">
+use Authentication\UserAuthentication;
+use Html\WebPage;
+
+require_once '../src/Html/WebPage.php';
+
+// Création de l'authentification
+$authentication = new UserAuthentication();
+
+// Création de la page Web
+$pageweb = new WebPage();
+
+$pageweb->setTitle("Connexion");
+
+$pageweb->appendCssUrl("css/style.css");
+
+$pageweb->appendCssUrl("https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css");
+
+$pageweb->appendContent(
+    <<<HTML
+        <nav class="nav__bar">
         <ul>
-            <a href="index.html">
+            <a href="index.php">
                 <li>Accueil</li>
             </a>
             <div class="icons">
                 <li><i class='bx bx-basket'></i></li>
                 <li><i class='bx bx-heart'></i></li>
-                <a href="connexion.html">
+                <a href="connexion.php">
                     <li><i class='bx bx-user'></i></li>
                 </a>
             </div>
@@ -27,7 +37,15 @@
     </nav>
 
     <div class="container">
-        <h2>Bonjour utilisateur</h2>
+        <h2>Connexion</h2>
+HTML
+);
+
+$form = $authentication->loginForm('profile.php');
+
+$pageweb->appendContent(
+    <<<HTML
+        {$form}
     </div>
 
     <footer>
@@ -64,6 +82,7 @@
             </li>
         </ul>
     </div>
-</body>
+HTML
+);
 
-</html>
+echo $pageweb->toHTML();
