@@ -8,6 +8,15 @@ use Service\Exception\NotLoggedInException;
 
 require_once '../src/Html/WebPage.php';
 
+$authentication = new UserAuthentication();
+
+try {
+    $user = $authentication->getUser();
+    $form = $authentication->logoutForm('deconnexion.php', 'Déconnexion');
+} catch (NotLoggedInException $e) {
+    header('Location: /connexion.php');
+}
+
 $pageweb = new WebPage();
 
 $pageweb->setTitle("Inscription");
@@ -15,8 +24,6 @@ $pageweb->setTitle("Inscription");
 $pageweb->appendCssUrl("css/style.css");
 
 $pageweb->appendCssUrl("https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css");
-
-$authentication = new UserAuthentication();
 
 $pageweb->appendContent(
     <<<HTML
@@ -38,17 +45,6 @@ $pageweb->appendContent(
     <div class="container">
 HTML
 );
-
-// Utilisateur connecté ?
-if (!$authentication->isUserConnected()) {
-    // Redirection vers le formulaire de connexion
-    header('Location: /connexion.php');
-    die(); // Fin du programme
-} else {
-    $user = $authentication->getUser();
-    $authentication->logoutIfRequested();
-    $form = $authentication->logoutForm('index.php', 'Déconnexion');
-}
 
 $pageweb->appendContent(
     <<<HTML

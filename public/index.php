@@ -2,12 +2,15 @@
 
 declare(strict_types=1);
 
+use Authentication\UserAuthentication;
 use Html\WebPage;
 
 require_once '../src/Html/WebPage.php';
 
 // Création de la page Web
 $pageweb = new WebPage();
+
+$authentication = new UserAuthentication();
 
 $pageweb->setTitle("Accueil");
 
@@ -25,7 +28,25 @@ $pageweb->appendContent(
             <div class="icons">
                 <li><i class='bx bx-basket'></i></li>
                 <li><i class='bx bx-heart'></i></li>
+HTML);
+
+if ($authentication->isUserConnected()) {
+    $pageweb->appendContent(
+        <<<HTML
+                <a href="profile.php">
+    HTML
+    );
+} else {
+    $pageweb->appendContent(
+        <<<HTML
                 <a href="connexion.php">
+    HTML
+    );
+}
+
+
+$pageweb->appendContent(
+    <<<HTML
                     <li><i class='bx bx-user'></i></li>
                 </a>
             </div>

@@ -99,16 +99,60 @@ Navigation -----------------------------------
 Contenu -----------------------------------
 */
 
-/*
-Caroussels 
-*/
-
 .container {
     background-color: var(--white);
     display: flex;
     flex-direction: column;
     color: var(--grey);
     flex-grow: 1;
+}
+
+.container .invalid {
+    text-align: center;
+    animation: Color2 2s linear infinite;
+    -webkit-animation: Color2 2s ease-in-out infinite;
+}
+
+@keyframes Color2 {
+    0% {
+        color: #000000;
+    }
+
+    50% {
+        color: #ff0000;
+    }
+
+    100% {
+        color: #000000;
+    }
+}
+
+@-moz-keyframes Color2 {
+    0% {
+        color: #000000;
+    }
+
+    50% {
+        color: #ff0000;
+    }
+
+    100% {
+        color: #000000;
+    }
+}
+
+@-webkit-keyframes Color2 {
+    0% {
+        color: #000000;
+    }
+
+    50% {
+        color: #ff0000;
+    }
+
+    100% {
+        color: #000000;
+    }
 }
 
 .section1 {

@@ -4,11 +4,14 @@ declare(strict_types=1);
 
 use Authentication\UserAuthentication;
 use Html\WebPage;
+use Service\Session;
 
 require_once '../src/Html/WebPage.php';
 
 // Création de l'authentification
 $authentication = new UserAuthentication();
+
+$form = $authentication->loginForm('/auth.php', 'Connexion');
 
 // Création de la page Web
 $pageweb = new WebPage();
@@ -41,7 +44,15 @@ $pageweb->appendContent(
 HTML
 );
 
-$form = $authentication->loginForm('profile.php');
+Session::start();
+if (isset($_SESSION['invalid_login'])) {
+    unset($_SESSION['invalid_login']);
+    $pageweb->appendContent(
+        <<<HTML
+        <p class="invalid">Adresse mail ou mot de passe invalide</p>    
+HTML
+    );
+}
 
 $pageweb->appendContent(
     <<<HTML

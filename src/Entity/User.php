@@ -41,6 +41,35 @@ class User
         return $fetch;
     }
 
+    public static function create(int $id, string $firstname, string $lastname, string $email, string $birthdate, ?string $phone = null): self
+    {
+        $user = new User();
+        $user->setId($id);
+        $user->setFirstName($firstname);
+        $user->setLastName($lastname);
+        $user->setEmail($email);
+        $user->setBirthdate($birthdate);
+        $user->setPhone($phone);
+        return $user;
+    }
+
+    public function insert(int $id, string $firstname, string $lastname, string $email, string $password, string $birthdate, ?string $phone = null): self
+    {
+        $stmt = MyPDO::getInstance()->prepare(
+            <<<'SQL'
+            INSERT INTO user (id, firstname, lastname, email, sha512pass, birthdate, phone)
+            VALUES(:id, :firstname, :lastname, :email, :password, :birthdate, :phone)
+        SQL
+        );
+
+        $stmt->execute(["id" => $id, "firstname" => $firstname, "lastname" => $lastname, "email" => $email,
+            "password" => hash('sha512', $password), "birthdate" => $birthdate, "phone" => $phone,]);
+        $this->setId((int)MYPDO::getInstance()->lastInsertId());
+        return $this;
+
+    }
+
+
     /**
      * @return int
      */
@@ -87,5 +116,53 @@ class User
     public function getPhone(): string
     {
         return $this->phone;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @param string $firstName
+     */
+    public function setFirstName(string $firstName): void
+    {
+        $this->firstName = $firstName;
+    }
+
+    /**
+     * @param string $lastName
+     */
+    public function setLastName(string $lastName): void
+    {
+        $this->lastName = $lastName;
+    }
+
+    /**
+     * @param string $email
+     */
+    public function setEmail(string $email): void
+    {
+        $this->email = $email;
+    }
+
+    /**
+     * @param string $birthdate
+     */
+    public function setBirthdate(string $birthdate): void
+    {
+        $this->birthdate = $birthdate;
+    }
+
+    /**
+     * @param string $phone
+     */
+    public function setPhone(string $phone): void
+    {
+        $this->phone = $phone;
     }
 }
