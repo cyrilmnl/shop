@@ -9,6 +9,7 @@ Projet personnel consistant à créer une boutique de vêtements en ligne. Le si
 Programmes/logiciels/ressources utilisés pour développer le projet
 
 * [Visual Studio Code](https://code.visualstudio.com/) - Editeur de code
+* [PhpStorm](https://www.jetbrains.com/fr-fr/phpstorm/) - IDE PHP
 
 ## Auteurs
 
