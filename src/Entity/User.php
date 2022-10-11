@@ -41,10 +41,9 @@ class User
         return $fetch;
     }
 
-    public static function create(int $id, string $firstname, string $lastname, string $email, string $birthdate, ?string $phone = null): self
+    public static function create(string $firstname, string $lastname, string $email, string $birthdate, ?string $phone = null): self
     {
         $user = new User();
-        $user->setId($id);
         $user->setFirstName($firstname);
         $user->setLastName($lastname);
         $user->setEmail($email);
@@ -53,22 +52,20 @@ class User
         return $user;
     }
 
-    public function insert(int $id, string $firstname, string $lastname, string $email, string $password, string $birthdate, ?string $phone = null): self
+    public function insert(string $firstname, string $lastname, string $email, string $password, string $birthdate, ?string $phone = null): self
     {
         $stmt = MyPDO::getInstance()->prepare(
             <<<'SQL'
             INSERT INTO user (id, firstname, lastname, email, sha512pass, birthdate, phone)
-            VALUES(:id, :firstname, :lastname, :email, :password, :birthdate, :phone)
+            VALUES(null, :firstname, :lastname, :email, :password, :birthdate, :phone)
         SQL
         );
 
-        $stmt->execute(["id" => $id, "firstname" => $firstname, "lastname" => $lastname, "email" => $email,
+        $stmt->execute(["firstname" => $firstname, "lastname" => $lastname, "email" => $email,
             "password" => hash('sha512', $password), "birthdate" => $birthdate, "phone" => $phone,]);
         $this->setId((int)MYPDO::getInstance()->lastInsertId());
         return $this;
-
     }
-
 
     /**
      * @return int

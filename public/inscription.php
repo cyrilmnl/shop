@@ -34,7 +34,7 @@ $pageweb->appendContent(
     <div class="container">
         <h2>Inscription</h2>
 
-        <form class="form" method="post" action="profile.php">
+        <form class="form" method="post" action="form.php">
             <label>
                 Nom<br>
                 <input type="text" placeholder="Entrer votre nom de famille" name="lastname" required
@@ -43,7 +43,7 @@ $pageweb->appendContent(
 
             <label>
                 Prénom<br>
-                <input type="text" placeholder="Entrer votre prénom" name="name" required pattern="[A-Za-z]+">
+                <input type="text" placeholder="Entrer votre prénom" name="firstname" required pattern="[A-Za-z]+">
             </label>
 
             <label>
