@@ -2,7 +2,7 @@
 
 [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
 
-Projet personnel consistant à créer une boutique de vêtements en ligne. Le site est uniquement statique pour le moment mais qui deviendra un CRUD dans le futur avec des interactions avec une base de données mais également un système d'authentification a réaliser en PHP.
+Projet personnel consistant à créer une boutique de vêtements en ligne.
 
 ## Fabriqué avec
 
