@@ -11,7 +11,7 @@ use PDO;
 
 class User
 {
-    private int $id;
+    private ?int $id;
     private string $firstName;
     private string $lastName;
     private string $email;
@@ -41,6 +41,30 @@ class User
         return $fetch;
     }
 
+    /**
+     * @throws EntityNotFoundException
+     */
+    public static function findById(?int $id): self
+    {
+        $stmt = MyPDO::getInstance()->prepare(
+            <<<'SQL'
+            SELECT *
+            FROM user 
+            WHERE id = :id
+        SQL
+        );
+
+        $stmt->execute([":id" => $id]);
+        $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, User::class);
+
+        $fetch = $stmt->fetch();
+        if ($fetch == false) {
+            throw new EntityNotFoundException("No data found");
+        }
+        return $fetch;
+    }
+
+
     public static function create(string $firstname, string $lastname, string $email, string $birthdate, ?string $phone = null): self
     {
         $user = new User();
@@ -64,6 +88,20 @@ class User
         $stmt->execute(["firstname" => $firstname, "lastname" => $lastname, "email" => $email,
             "password" => hash('sha512', $password), "birthdate" => $birthdate, "phone" => $phone,]);
         $this->setId((int)MYPDO::getInstance()->lastInsertId());
+        return $this;
+    }
+
+    public function delete(): self
+    {
+        $stmt = MyPDO::getInstance()->prepare(
+            <<<'SQL'
+            DELETE FROM user
+            WHERE id = :id
+        SQL
+        );
+
+        $stmt->execute([":id" => $this->id]);
+        $this->id = null;
         return $this;
     }
 

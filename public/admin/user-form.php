@@ -20,7 +20,7 @@ try {
         $newUser->insert($firstname, $lastname, $email, $password, $birthdate, $phone);
     }
 
-    header("Location: /index.php");
+    header("Location: ../index.php");
 } catch (ParameterException) {
     http_response_code(400);
 } catch (EntityNotFoundException) {

@@ -34,7 +34,7 @@ $pageweb->appendContent(
     <div class="container">
         <h2>Inscription</h2>
 
-        <form class="form" method="post" action="form.php">
+        <form class="form" method="post" action="admin/user-form.php">
             <label>
                 Nom<br>
                 <input type="text" placeholder="Entrer votre nom de famille" name="lastname" required
@@ -105,6 +105,9 @@ $pageweb->appendContent(
                     <li>Confidentialité</li>
                     <li>Cookies</li>
                     <li>Conditions générales</li>
+                    <a href="admin/index.php">
+                        <li>Administration</li>
+                    </a>
                 </ul>
             </li>
         </ul>

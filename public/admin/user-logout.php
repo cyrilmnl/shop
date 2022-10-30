@@ -11,8 +11,8 @@ try {
     $user = $authentication->getUser();
     if (isset($_POST['logout'])) {
         $authentication->logoutIfRequested();
-        header('Location: /profile.php');
+        header('Location: ../profile.php');
     }
 } catch (NotLoggedInException $e) {
-    header('Location: /connexion.php');
+    header('Location: ../connexion.php');
 }

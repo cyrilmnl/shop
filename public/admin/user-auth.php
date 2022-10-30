@@ -12,9 +12,9 @@ $authentication = new UserAuthentication();
 
 try {
     $authentication->getUserFromAuth();
-    header('Location: /profile.php');
+    header('Location: ../profile.php');
 } catch (EntityNotFoundException|NotLoggedInException|SessionException $e) {
     Session::start();
     $_SESSION['invalid_login'] = 'invalid_login';
-    header('Location: /connexion.php');
+    header('Location: ../connexion.php');
 }

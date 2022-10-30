@@ -12,14 +12,14 @@ $authentication = new UserAuthentication();
 
 try {
     $user = $authentication->getUser();
-    $form = $authentication->logoutForm('deconnexion.php', 'Déconnexion');
+    $form = $authentication->logoutForm('admin/user-logout.php', 'Déconnexion');
 } catch (NotLoggedInException $e) {
     header('Location: /connexion.php');
 }
 
 $pageweb = new WebPage();
 
-$pageweb->setTitle("Inscription");
+$pageweb->setTitle("Profil");
 
 $pageweb->appendCssUrl("css/style.css");
 
@@ -35,7 +35,7 @@ $pageweb->appendContent(
             <div class="icons">
                 <li><i class='bx bx-basket'></i></li>
                 <li><i class='bx bx-heart'></i></li>
-                <a href="connexion.php">
+                <a href="profile.php">
                     <li><i class='bx bx-user'></i></li>
                 </a>
             </div>
@@ -83,6 +83,9 @@ $pageweb->appendContent(
                     <li>Confidentialité</li>
                     <li>Cookies</li>
                     <li>Conditions générales</li>
+                    <a href="admin/index.php">
+                        <li>Administration</li>
+                    </a>
                 </ul>
             </li>
         </ul>

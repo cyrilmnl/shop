@@ -59,6 +59,14 @@ Navigation -----------------------------------
     text-decoration: none;
 }
 
+.nav__bar2 a {
+    color: var(--white);
+}
+
+.nav__bar2 a:link {
+    text-decoration: none;
+}
+
 .nav__bar ul li {
     padding: 10px 30px;
     transition: .3s;
@@ -180,12 +188,12 @@ Contenu -----------------------------------
     background-color: var(--white);
     border-radius: 10px;
     transition: .3s;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
 }
 
 .content__item:hover {
     transition: .3s;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 30px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0 5px 30px;
 }
 
 .content__item img {
@@ -343,6 +351,14 @@ footer {
     left: -25px;
 }
 
+.informations a {
+    color: var(--black);
+}
+
+.informations a:link {
+    text-decoration: none;
+}
+
 /*
 Scrollbar -----------------------------------
 */
@@ -377,13 +393,13 @@ Formulaire -----------------------------------
     margin-bottom: 50px;
     border-radius: 20px;
     transition: .3s;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 15px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0 10px 15px;
     gap: 20px;
 }
 
 .form input {
     width: 100%;
-    padding: 6px 0px;
+    padding: 6px 0;
     border: 1px solid rgba(27, 31, 35, .15);
     border-radius: 6px;
     margin: 8px 0;
@@ -445,6 +461,38 @@ Profile
 }
 
 .logout button:hover {
+    transition: .3s;
+    transform: scale(1.1);
+}
+
+/*
+Admin
+ */
+
+.user {
+    color: var(--black);
+    font-weight: bold;
+}
+
+.users {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding-top: 10px;
+}
+
+.users button {
+    transition: .3s;
+    background-color: #a42e2e;
+    border: 1px solid rgba(27, 31, 35, .15);
+    border-radius: 6px;
+    box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+    padding: 6px 16px;
+    color: var(--white);
+}
+
+.users button:hover {
     transition: .3s;
     transform: scale(1.1);
 }

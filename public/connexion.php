@@ -11,7 +11,7 @@ require_once '../src/Html/WebPage.php';
 // Création de l'authentification
 $authentication = new UserAuthentication();
 
-$form = $authentication->loginForm('/auth.php', 'Connexion');
+$form = $authentication->loginForm('admin/user-auth.php', 'Connexion');
 
 // Création de la page Web
 $pageweb = new WebPage();
@@ -89,6 +89,9 @@ $pageweb->appendContent(
                     <li>Confidentialité</li>
                     <li>Cookies</li>
                     <li>Conditions générales</li>
+                    <a href="admin/index.php">
+                        <li>Administration</li>
+                    </a>
                 </ul>
             </li>
         </ul>

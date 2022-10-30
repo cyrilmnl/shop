@@ -156,6 +156,9 @@ $pageweb->appendContent(
                     <li>Confidentialité</li>
                     <li>Cookies</li>
                     <li>Conditions générales</li>
+                    <a href="admin/index.php">
+                        <li>Administration</li>
+                    </a>
                 </ul>
             </li>
         </ul>
